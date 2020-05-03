@@ -1,6 +1,6 @@
 {
-    "name": "otis22/to-csv-excel-export",
-    "description": "Php package for table export to csv and excel",
+    "name": "otis22/php-skelleton",
+    "description": "Php skelleton for write high quality code",
     "license": "MIT",
     "authors": [
         {
@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Otis22\\TableExport\\": "src"
+            "Otis22\\PhpSkelleton\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Otis22\\TableExport\\Tests\\": "tests"
+            "Otis22\\PhpSkelleton\\Tests\\": "tests"
         }
     }
 }

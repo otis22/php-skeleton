@@ -3,7 +3,7 @@ services:
 
     php-cli:
       build: phpdocker/php-cli
-      container_name: to-csc-excel
+      container_name: php-skelleton
       working_dir: /application
       volumes:
         - ..:/application

@@ -1,4 +1,37 @@
-# to-csv-excel
-Php package for export table data to csv and excel
+# php skelleton
+Skelleton for write high quality php application
 
-docker run --rm -ti -v $PWD:/app -w /app phpimage:latest /bin/bash -c "sleep infinity" --env= COMPOSER_AUTH="95fc0907abd37d3d4d759ef2a3758704d6bd1650"
+![Build Status](https://github.com/otis22/php-skelleton/workflows/CI/badge.svg)
+
+##Local work
+
+```
+cd docker
+docker-compose up
+```
+now you can connect to terminal
+```
+docker exec -it php-skelleton /bin/bash
+```
+
+##Run tests
+
+```
+#validate composer json
+composer validate
+
+#check code style
+vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
+
+#run unit tests
+vendor/bin/phpunit
+
+#run coverage check(need run after phpunit)
+vendor/bin/php-coverage-checker build/clover.xml 100
+```
+
+
+##Adopt for you 
+
+- Put your code to src/ tests/ directory
+- Change data in composer.json

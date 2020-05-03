@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otis22\TableExport;
+namespace Otis22\PhpSkelleton;
 
 class Test
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Otis22\TableExport\Tests;
+namespace Otis22\PhpSkelleton\Tests;
 
-use Otis22\TableExport\Test;
+use Otis22\PhpSkelleton\Test;
 use PHPUnit\Framework\TestCase;
 
 class TestTest extends TestCase
