@@ -3,7 +3,7 @@ Skelleton for write high quality php application
 
 ![Build Status](https://github.com/otis22/php-skelleton/workflows/CI/badge.svg)
 
-##Local work
+## Local work
 
 ```
 cd docker
@@ -14,7 +14,7 @@ now you can connect to terminal
 docker exec -it php-skelleton /bin/bash
 ```
 
-##Run tests
+## Run tests
 
 ```
 #validate composer json
@@ -29,7 +29,6 @@ vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
 #analyze code
 vendor/bin/phpstan analyse --level=max src tests
 
-
 #run unit tests
 vendor/bin/phpunit
 
@@ -42,3 +41,9 @@ vendor/bin/php-coverage-checker build/clover.xml 100
 
 - Put your code to src/ tests/ directory
 - Change data in composer.json
+
+
+## Comments 
+
+For create docker was used https://phpdocker.io/ service.
+Repo with analyze tools: https://github.com/exakat/php-static-analysis-tools
