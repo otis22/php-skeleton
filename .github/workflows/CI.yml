@@ -16,11 +16,16 @@ jobs:
           extensions: mbstring, gd, zip
           ini-values: max_execution_time=600, memory_limit=-1
           coverage: xdebug
-      - name: Install dependencies
+      - name: Validate composer.json
         run: |
           curl -sS https://getcomposer.org/installer | php -- --filename=composer
           composer validate
+      - name: Install dependency
+        run: |
           composer install
+      - name: Security check
+        run: |
+          vendor/bin/security-checker security:check
       - name: Check code quality
         run: |
           vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
@@ -30,3 +35,4 @@ jobs:
       - name: Check coverage
         run: |
           vendor/bin/php-coverage-checker build/clover.xml 100
+vendor/bin/security-checker security:check

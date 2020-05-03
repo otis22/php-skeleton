@@ -20,6 +20,9 @@ docker exec -it php-skelleton /bin/bash
 #validate composer json
 composer validate
 
+#security check
+vendor/bin/security-checker security:check
+
 #check code style
 vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
 
@@ -31,7 +34,7 @@ vendor/bin/php-coverage-checker build/clover.xml 100
 ```
 
 
-##Adopt for you 
+## Adopt for you 
 
 - Put your code to src/ tests/ directory
 - Change data in composer.json
