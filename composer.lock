@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d333529a621d1e8622f1018be17de93",
+    "content-hash": "7e25862f0c5731d1194b3a00452692a2",
     "packages": [],
     "packages-dev": [
         {
@@ -62,6 +62,39 @@
                 "instantiate"
             ],
             "time": "2019-10-21T16:45:58+00:00"
+        },
+        {
+            "name": "michaelmoussa/php-coverage-checker",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michaelmoussa/php-coverage-checker.git",
+                "reference": "88d3c32c90360ba458d02e04dcf83e70a1d4a69d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michaelmoussa/php-coverage-checker/zipball/88d3c32c90360ba458d02e04dcf83e70a1d4a69d",
+                "reference": "88d3c32c90360ba458d02e04dcf83e70a1d4a69d",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/php-coverage-checker"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com"
+                }
+            ],
+            "description": "Automated code coverage percentage checking",
+            "homepage": "https://github.com/michaelmoussa/PhpCoverageChecker",
+            "time": "2015-09-30T21:02:27+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -423,6 +456,62 @@
                 "stub"
             ],
             "time": "2020-03-05T15:02:03+00:00"
+        },
+        {
+            "name": "phpstan/phpstan",
+            "version": "0.12.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "054f6d76b12ba9a6c13a5a8d5fcdf51219615f4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/054f6d76b12ba9a6c13a5a8d5fcdf51219615f4d",
+                "reference": "054f6d76b12ba9a6c13a5a8d5fcdf51219615f4d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.12-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpstan",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-19T20:35:10+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

@@ -15,25 +15,18 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           extensions: mbstring, gd, zip
           ini-values: max_execution_time=600, memory_limit=-1
-          coverage: pcov
+          coverage: xdebug
       - name: Install dependencies
         run: |
           curl -sS https://getcomposer.org/installer | php -- --filename=composer
+          composer validate
           composer install
       - name: Check code quality
         run: |
-          vendor/bin/code-quality
-      - name: Test against highest versions
+          vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
+      - name: Run tests
         run: |
-          vendor/bin/unit-test
-          vendor/bin/functional-test
-      - name: Test against lowest versions
+          vendor/bin/phpunit
+      - name: Check coverage
         run: |
-          composer update --prefer-lowest
-          vendor/bin/unit-test
-          vendor/bin/functional-test ^3.4
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v1
-        with:
-          name: coverage
-          path: tests/coverage
+          vendor/bin/php-coverage-checker build/clover.xml 100

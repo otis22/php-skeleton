@@ -2,12 +2,17 @@
 
 declare(strict_types=1);
 
-
 namespace Otis22\TableExport;
 
-class Test {
-    public function one()
+class Test
+{
+
+    public function one(): int
     {
         return 1;
+    }
+    public function two(): int
+    {
+        return 2;
     }
 }
