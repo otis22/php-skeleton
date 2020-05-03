@@ -26,9 +26,12 @@ jobs:
       - name: Security check
         run: |
           vendor/bin/security-checker security:check
-      - name: Check code quality
+      - name: Check code standart
         run: |
           vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
+      - name: Analyze code
+        run: |
+          vendor/bin/phpstan analyse --level=max src tests
       - name: Run tests
         run: |
           vendor/bin/phpunit
