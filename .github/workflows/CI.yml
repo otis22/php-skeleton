@@ -38,4 +38,3 @@ jobs:
       - name: Check coverage
         run: |
           vendor/bin/php-coverage-checker build/clover.xml 100
-vendor/bin/security-checker security:check
