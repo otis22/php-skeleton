@@ -43,6 +43,7 @@ vendor/bin/php-coverage-checker build/clover.xml 100
 - From directory with your project run "cp -r ../php-skelleton/* ."
 - Put your code to src/ tests/ directory
 - Change data in composer.json
+- Change README file
 
 
 ## Comments 
