@@ -1,0 +1,25 @@
+stages:
+  - build
+  - phpcs
+  - test
+
+build:
+  stage: build
+  script:
+    - docker build --rm -t php-skeleton -f docker/phpdocker/php-cli/Dockerfile .
+  tags:
+    - werf
+
+phpcs:app:
+  stage: phpcs
+  script:
+    - docker run --rm --entrypoint /bin/bash php-tests -c "cd /app && /usr/bin/composer install && vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests"
+  tags:
+    - werf
+
+test:app:
+  stage: test
+  script:
+    - docker run --rm --entrypoint /bin/bash php-tests -c "cd /app && /usr/bin/composer install && ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests"
+  tags:
+    - werf
