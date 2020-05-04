@@ -1,31 +1,14 @@
-image: "phpdockerio/php74-cli:latest"
-
-before_script:
-  - apt-get update && apt-get -y --no-install-recommends install git php-xdebug php7.4-bcmath php7.4-bz2
-  - apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-
 stages:
-  - validate
-  - install
-  - phpcs
-  - test
+  - build
+  - validate composer
 
 build:
-  stage: validate
+  stage: build
   script:
-    - composer validate
+    - docker build --rm -t php-skelleton -f docker/phpdocker/php-for-cli/Dockerfile .
 
 build:
-  stage: install
+  stage: validate composer
   script:
-    - composer install
+    - docker run --rm --entrypoint /bin/bash php-skelleton -c "cd /application && composer validate"
 
-phpcs:app:
-  stage: phpcs
-  script:
-    - vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
-
-test:app:
-  stage: test
-  script:
-    - vendor/bin/phpunit
