@@ -1,14 +1,11 @@
 image: php:latest
 
 cache:
-  key: composer
   paths:
     - vendor
 
 stages:
-  - validate_composer
-  - security_check
-  - code_style_check
+  - composer_check
   - analyze_code
   - tests
 
@@ -18,32 +15,17 @@ before_script:
   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
   - composer install
 
-validate_composer:
-  stage: validate_composer
+composer_check:
+  stage: composer_check
   script:
-    - composer validate
-
-security_check:
-  stage: security_check
-  script:
-    - vendor/bin/security-checker security:check
-
-code_style_check:
-  stage: code_style_check
-  script:
-    - vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
+    - composer validate && vendor/bin/security-checker security:check
 
 analyze_code:
   stage: analyze_code
   script:
-    - vendor/bin/phpstan analyse --level=max src tests
+    - vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpstan analyse --level=max src tests
 
-unit_tests:
+tests:
   stage: tests
   script:
-    - vendor/bin/phpunit
-
-coverage_check:
-  stage: tests
-  script:
-    - vendor/bin/php-coverage-checker build/clover.xml 100
+    - vendor/bin/phpunit && vendor/bin/php-coverage-checker build/clover.xml 100
