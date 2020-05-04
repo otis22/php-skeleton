@@ -1,25 +1,31 @@
+image: "phpdockerio/php74-cli:latest"
+
+before_script:
+  - apt-get update && apt-get -y --no-install-recommends install git php-xdebug php7.4-bcmath php7.4-bz2
+  - apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
 stages:
-  - build
+  - validate
+  - install
   - phpcs
   - test
 
 build:
-  stage: build
+  stage: validate
   script:
-    - docker build --rm -t php-skeleton -f docker/phpdocker/php-cli/Dockerfile .
-  tags:
-    - werf
+    - composer validate
+
+build:
+  stage: install
+  script:
+    - composer install
 
 phpcs:app:
   stage: phpcs
   script:
-    - docker run --rm --entrypoint /bin/bash php-tests -c "cd /app && /usr/bin/composer install && vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests"
-  tags:
-    - werf
+    - vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
 
 test:app:
   stage: test
   script:
-    - docker run --rm --entrypoint /bin/bash php-tests -c "cd /app && /usr/bin/composer install && ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests"
-  tags:
-    - werf
+    - vendor/bin/phpunit
