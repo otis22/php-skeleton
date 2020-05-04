@@ -6,9 +6,13 @@ cache:
     - vendor
 
 before_script:
+  - apt-get update && apt-get -y --no-install-recommends install git php-xdebug php7.4-bcmath php7.4-bz2
   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
-  - composer validate
   - composer install
+
+validate_composer:
+  script:
+    - composer validate
 
 test:
   script:
