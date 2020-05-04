@@ -5,6 +5,13 @@ cache:
   paths:
     - vendor
 
+stages:
+  - validate_composer
+  - security_check
+  - code_style_check
+  - analyze_code
+  - tests
+
 before_script:
   - pecl install xdebug
   - docker-php-ext-enable xdebug
@@ -12,10 +19,31 @@ before_script:
   - composer install
 
 validate_composer:
+  stage: validate_composer
   script:
     - composer validate
 
-test:
+security_check:
+  stage: security_check
   script:
-    - ./vendor/bin/phpunit
+    - vendor/bin/security-checker security:check
 
+code_style_check:
+  stage: code_style_check
+  script:
+    - vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
+
+analyze_code:
+  stage: analyze_code
+  script:
+    - vendor/bin/phpstan analyse --level=max src tests
+
+unit_tests:
+  stage: tests
+  script:
+    - vendor/bin/phpunit
+
+coverage_check:
+  stage: tests
+  script:
+    - vendor/bin/php-coverage-checker build/clover.xml 100
