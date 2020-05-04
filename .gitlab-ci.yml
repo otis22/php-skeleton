@@ -2,7 +2,7 @@ image: php:latest
 
 cache:
   paths:
-    - vendor
+    - vendor/
 
 stages:
   - composer_check
