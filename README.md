@@ -48,5 +48,6 @@ vendor/bin/php-coverage-checker build/clover.xml 100
 
 ## Comments 
 
-For create docker was used https://phpdocker.io/ service.
-Repo with analyze tools: https://github.com/exakat/php-static-analysis-tools
+- For create docker was used https://phpdocker.io/ service.
+- Repo with analyze tools: https://github.com/exakat/php-static-analysis-tools
+- Repo for gitlab-ci php https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
