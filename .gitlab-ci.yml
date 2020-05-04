@@ -1,14 +1,16 @@
-stages:
-  - build
-  - validate composer
+image: php:7.4-cli-alpine
 
-build:
-  stage: build
-  script:
-    - docker build --rm -t php-skelleton -f docker/phpdocker/php-for-cli/Dockerfile .
+cache:
+  key: composer
+  paths:
+    - vendor
 
-build:
-  stage: validate composer
+before_script:
+  - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+  - composer validate
+  - composer install
+
+test:
   script:
-    - docker run --rm --entrypoint /bin/bash php-skelleton -c "cd /application && composer validate"
+    - ./vendor/bin/phpunit
 
