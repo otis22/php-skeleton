@@ -1,0 +1,34 @@
+# if you must use docker try this ci
+stages:
+  - build
+  - composer_check
+  - analyze_code
+  - tests
+
+build:
+  stage: build
+  script:
+    - docker build --rm -t php-skelleton-ci -f docker/phpdocker/php-for-ci/Dockerfile .
+  tags:
+    - werf
+
+composer_check:
+  stage: composer_check
+  script:
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer validate && vendor/bin/security-checker security:check"
+  tags:
+    - werf
+
+analyze_code:
+  stage: analyze_code
+  script:
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpstan analyse --level=max src tests"
+  tags:
+    - werf
+
+tests:
+  stage: tests
+  script:
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && vendor/bin/phpunit && vendor/bin/php-coverage-checker build/clover.xml 100"
+  tags:
+    - werf
