@@ -22,7 +22,7 @@ composer_check:
 analyze_code:
   stage: analyze_code
   script:
-    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpstan analyse --level=max src tests"
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && vendor/bin/phpcf tests src && vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpstan analyse --level=max src tests"
   tags:
     - werf
 

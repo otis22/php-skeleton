@@ -25,7 +25,7 @@ composer_check:
 analyze_code:
   stage: analyze_code
   script:
-    - vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpstan analyse --level=max src tests
+    - vendor/bin/phpcf tests src && vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpstan analyse --level=max src tests
 
 tests:
   stage: tests

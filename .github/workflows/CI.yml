@@ -31,7 +31,7 @@ jobs:
           vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
       - name: Analyze code
         run: |
-          vendor/bin/phpstan analyse --level=max src tests
+          vendor/bin/phpcf tests src && vendor/bin/phpstan analyse --level=max src tests
       - name: Run tests
         run: |
           vendor/bin/phpunit
