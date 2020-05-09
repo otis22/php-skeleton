@@ -9,27 +9,21 @@ namespace packagetest;
  *
  * @implements \Iterator<int, int>
  */
-class Sortarray implements \Iterator, \Countable
+class Mergearray implements \Iterator
 {
     /**
      * @var int
      */
     private $position;
-
     /**
      * @var array<int, int>
      */
-    private $array;
+    private $array = [];
 
-    /**
-     * Sortarray constructor.
-     * @param array<int, int> $data
-     */
-    public function __construct(array $data)
+    public function __construct(iterable ...$data)
     {
         $this->position = 0;
-        $this->array = $data;
-        $this->sort();
+        $this->merge($data);
     }
 
     public function rewind(): void
@@ -71,21 +65,20 @@ class Sortarray implements \Iterator, \Countable
      */
     public function count(): int
     {
-        return sizeof($this->array);
+        return count($this->array);
     }
 
-    public function sort(): void
+    /**
+     * @param array<int, iterable> $data
+     */
+    //public function merge(iterable $data): void
+    public function merge(array $data): void
     {
-        $positionI = $positionJ = 0;
-        $size = $this->count();
-        for ($positionI = 0; $positionI < $size; $positionI++) {
-            for ($positionJ = $size - 1; $positionJ > $positionI; $positionJ--) {
-                if ($this->array[$positionJ - 1] > $this->array[$positionJ]) {
-                    $x = $this->array[$positionJ - 1];
-                    $this->array[$positionJ - 1] = $this->array[$positionJ];
-                    $this->array[$positionJ] = $x;
-                }
-            }
+        $combinedIterator = new \AppendIterator();
+        foreach ($data as $itemData) {
+            $array = (array) $itemData;
+            $combinedIterator->append(new \ArrayIterator($array));
         }
+        $this->array = iterator_to_array($combinedIterator, false);
     }
 }
