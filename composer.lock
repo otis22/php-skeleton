@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a55676d4467366bbcf2a11101c9e8e9",
+    "content-hash": "f4d3f56eaf7cb028a6087bf4458d7374",
     "packages": [],
     "packages-dev": [
         {
@@ -113,16 +113,16 @@
         },
         {
             "name": "otis22/php-coverage-checker",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/otis22/php-coverage-checker.git",
-                "reference": "88d3c32c90360ba458d02e04dcf83e70a1d4a69d"
+                "reference": "842a0efa972fa0debaae16e86ecc1720e1af8ec2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/otis22/php-coverage-checker/zipball/88d3c32c90360ba458d02e04dcf83e70a1d4a69d",
-                "reference": "88d3c32c90360ba458d02e04dcf83e70a1d4a69d",
+                "url": "https://api.github.com/repos/otis22/php-coverage-checker/zipball/842a0efa972fa0debaae16e86ecc1720e1af8ec2",
+                "reference": "842a0efa972fa0debaae16e86ecc1720e1af8ec2",
                 "shasum": ""
             },
             "bin": [
@@ -135,14 +135,13 @@
             ],
             "authors": [
                 {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com"
+                    "name": "Vladimir Romanichev",
+                    "email": "vromanichev24@gmail.com"
                 }
             ],
             "description": "Automated code coverage percentage checking",
-            "homepage": "https://github.com/michaelmoussa/PhpCoverageChecker",
-            "time": "2015-09-30T21:02:27+00:00"
+            "homepage": "https://github.com/otis22/php-coverage-checker",
+            "time": "2020-05-10T21:44:08+00:00"
         },
         {
             "name": "phar-io/manifest",

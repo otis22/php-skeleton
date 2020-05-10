@@ -12,7 +12,7 @@
         "phpunit/phpunit": "^9.1",
         "squizlabs/php_codesniffer": "3.*",
         "phpstan/phpstan": "^0.12.19",
-        "otis22/php-coverage-checker": "^1.1",
+        "otis22/php-coverage-checker": "^1.2",
         "sensiolabs/security-checker": "^6.0",
         "wapmorgan/php-code-fixer": "^2.0"
     },
