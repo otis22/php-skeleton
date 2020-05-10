@@ -53,7 +53,7 @@ vendor/bin/phpunit && vendor/bin/php-coverage-checker build/clover.xml 100
 - From directory with your project run "cp -r ../php-skelleton/* . && cp ../php-skelleton/.github . && cp ../php-skelleton/.gitignore ."
 - Put your code to src/ tests/ directory
 - Change data in composer.json
-- Change README file
+- Change README file(Project name, badge url and other)
 
 
 ## Comments 
