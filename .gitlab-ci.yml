@@ -30,4 +30,4 @@ analyze_code:
 tests:
   stage: tests
   script:
-    - vendor/bin/phpunit && vendor/bin/php-coverage-checker build/clover.xml 100
+    - vendor/bin/phpunit && vendor/bin/php-coverage-checker build/logs/clover.xml 100

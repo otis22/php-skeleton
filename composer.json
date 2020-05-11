@@ -14,7 +14,8 @@
         "phpstan/phpstan": "^0.12.19",
         "otis22/php-coverage-checker": "^1.2",
         "sensiolabs/security-checker": "^6.0",
-        "wapmorgan/php-code-fixer": "^2.0"
+        "wapmorgan/php-code-fixer": "^2.0",
+        "php-coveralls/php-coveralls": "^2.2"
     },
     "autoload": {
         "psr-4": {

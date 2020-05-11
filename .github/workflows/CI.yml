@@ -37,4 +37,4 @@ jobs:
           vendor/bin/phpunit
       - name: Check coverage
         run: |
-          vendor/bin/php-coverage-checker build/clover.xml 100
+          vendor/bin/php-coverage-checker build/logs/clover.xml 100
