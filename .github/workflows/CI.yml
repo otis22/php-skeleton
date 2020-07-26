@@ -25,7 +25,7 @@ jobs:
           composer install
       - name: Security check
         run: |
-          comoser security
+          composer security
       - name: Check code standart
         run: |
           composer check-style
