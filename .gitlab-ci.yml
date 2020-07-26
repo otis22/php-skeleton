@@ -20,14 +20,14 @@ before_script:
 composer_check:
   stage: composer_check
   script:
-    - composer validate && vendor/bin/security-checker security:check
+    - composer validate && composer security
 
 analyze_code:
   stage: analyze_code
   script:
-    - vendor/bin/phpcf tests src && vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpstan analyse --level=max src tests
+    - composer check-style && composer check-static-analyze
 
 tests:
   stage: tests
   script:
-    - vendor/bin/phpunit && vendor/bin/php-coverage-checker build/logs/clover.xml 100
+    - composer unit

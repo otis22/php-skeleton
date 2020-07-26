@@ -15,20 +15,20 @@ build:
 composer_check:
   stage: composer_check
   script:
-    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer validate && vendor/bin/security-checker security:check"
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer validate && composer security"
   tags:
     - werf
 
 analyze_code:
   stage: analyze_code
   script:
-    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && vendor/bin/phpcf tests src && vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpstan analyse --level=max src tests"
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer check-style && composer check-static-analyze"
   tags:
     - werf
 
 tests:
   stage: tests
   script:
-    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && vendor/bin/phpunit && vendor/bin/php-coverage-checker build/logs/clover.xml 100"
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer unit"
   tags:
     - werf

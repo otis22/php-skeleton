@@ -19,33 +19,20 @@ docker exec -it php-skelleton /bin/bash
 ## Run tests
 
 ```
-#validate composer json
-composer validate
+#run all
+composer check-all
 
 #security check
-vendor/bin/security-checker security:check
+composer security
 
 #check code style
-vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests
+composer check-style
 
 #analyze code
-vendor/bin/phpcf tests src && vendor/bin/phpstan analyse --level=max src tests
+composer check-static-analyze
 
 #run unit tests
-vendor/bin/phpunit
-
-#run coverage check(need run after phpunit)
-vendor/bin/php-coverage-checker build/logs/clover.xml 100
-
-#run all tests
-
-composer validate && \
-vendor/bin/security-checker security:check && \
-vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && \
-vendor/bin/phpcf tests src && vendor/bin/phpstan analyse --level=max src tests && \
-vendor/bin/phpunit && vendor/bin/php-coverage-checker build/logs/clover.xml 100
-
-
+composer unit
 ```
 
 
