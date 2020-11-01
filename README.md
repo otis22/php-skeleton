@@ -39,7 +39,7 @@ composer unit
 ## Adopt for you 
 
 - Clone this repo to one level with your repo path. For example: Directory "projects" has directory "php-skelleton" and your project directory
-- From directory with your project run "cp -r ../php-skelleton/* . && cp ../php-skelleton/.github . && cp ../php-skelleton/.gitignore ."
+- From directory with your project run "cp -r ../php-skelleton/* . && cp -r ../php-skelleton/.github . && cp ../php-skelleton/.gitignore ."
 - Put your code to src/ tests/ directory
 - Change data in composer.json
 - Change README file(Project name, badge url and other)
