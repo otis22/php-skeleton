@@ -36,11 +36,10 @@ make coverage
 
 ## Adopt for you 
 
-- Clone this repo to one level with your repo path. For example: Directory "projects" has directory "php-skelleton" and your project directory
-- From directory with your project run "cp -r ../php-skelleton/* . && cp -r ../php-skelleton/.github . && cp ../php-skelleton/.gitignore ."
+- Click on [Use template button](https://prnt.sc/w7avaw) 
 - Put your code to src/ tests/ directory
-- Change data in composer.json
-- Change README file(Project name, badge url and other)
+- Delete config files for unused CI systems
+- Change project data in composer.json, README and Makefile
 
 
 ## Comments 
