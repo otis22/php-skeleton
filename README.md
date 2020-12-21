@@ -7,34 +7,32 @@ Skelleton for write high quality php application
 
 ## Local work
 
+For run all tests
+```shell
+make all
 ```
-cd docker
-docker-compose up
-```
-now you can connect to terminal
-```
-docker exec -it php-skelleton /bin/bash
-```
-
-## Run tests
-
-```
-#run all
-composer check-all
-
-#security check
-composer security
-
-#check code style
-composer check-style
-
-#analyze code
-composer check-static-analyze
-
-#run unit tests
-composer unit
+or you can connect to terminal
+```shell
+make exec
 ```
 
+all commands
+```shell
+# security check
+make security
+# composer install
+make install
+# composer install with --no-dev
+make install-no-dev
+# check code style
+make style
+# run static analyze tools
+make static-analyze
+# run unit tests
+make unit
+#  check coverage
+make coverage
+```
 
 ## Adopt for you 
 
@@ -47,6 +45,5 @@ composer unit
 
 ## Comments 
 
-- For create docker was used https://phpdocker.io/ service.
 - Repo with analyze tools: https://github.com/exakat/php-static-analysis-tools
 - Repo for gitlab-ci php https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml

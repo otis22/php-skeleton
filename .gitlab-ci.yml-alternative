@@ -8,7 +8,7 @@ stages:
 build:
   stage: build
   script:
-    - docker build --rm -t php-skelleton-ci -f docker/phpdocker/php-for-ci/Dockerfile .
+    - docker build --rm -t php-skelleton-ci -f docker/Dockerfile .
   tags:
     - werf
 
@@ -22,13 +22,13 @@ composer_check:
 analyze_code:
   stage: analyze_code
   script:
-    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer check-style && composer check-static-analyze"
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer style && composer static-analyze"
   tags:
     - werf
 
 tests:
   stage: tests
   script:
-    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer unit"
+    - docker run --rm --entrypoint /bin/bash php-skelleton-ci -c "cd /application && composer install && composer unit && composer coverage"
   tags:
     - werf

@@ -25,9 +25,9 @@ composer_check:
 analyze_code:
   stage: analyze_code
   script:
-    - composer check-style && composer check-static-analyze
+    - composer style && composer static-analyze
 
 tests:
   stage: tests
   script:
-    - composer unit
+    - composer unit && composer coverage

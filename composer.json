@@ -28,10 +28,11 @@
         }
     },
     "scripts": {
-        "unit": "vendor/bin/phpunit && vendor/bin/php-coverage-checker build/logs/clover.xml 100",
-        "check-static-analyze": "vendor/bin/phpstan analyse --level=max src tests",
-        "check-style": "vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpcf tests src",
+        "unit": "vendor/bin/phpunit",
+        "coverage": "vendor/bin/php-coverage-checker build/logs/clover.xml 100",
+        "static-analyze": "vendor/bin/phpstan analyse --level=max src tests",
+        "style": "vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests && vendor/bin/phpcf tests src",
         "security": "vendor/bin/security-checker security:check",
-        "check-all": "composer validate && composer security && composer check-style && composer check-static-analyze && composer unit"
+        "check-all": "composer validate && composer security && composer style && composer static-analyze && composer unit"
     }
 }

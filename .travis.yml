@@ -2,20 +2,23 @@ language: php
 php:
   - '7.3'
   - '7.4'
+  - '8.0'
+
 
 branches:
   only:
     - master
 
 install:
-  - composer install --dev
+  - composer install
 
 script:
   - composer validate
   - composer security
-  - composer check-style
-  - composer check-static-analyze
+  - composer style
+  - composer static-analyze
   - composer unit
+  - composer coverage
 
 after_success:
   - travis_retry php vendor/bin/php-coveralls -v

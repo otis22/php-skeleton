@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-versions: ['7.3', '7.4']
+        php-versions: ['7.3', '7.4', '8.0']
     steps:
       - uses: actions/checkout@v1
       - uses: shivammathur/setup-php@v1
@@ -28,13 +28,16 @@ jobs:
           composer security
       - name: Check code standart
         run: |
-          composer check-style
+          composer style
       - name: Analyze code
         run: |
-          composer check-static-analyze
+          composer static-analyze
       - name: Run tests
         run: |
           composer unit
+      - name: Check coverage
+        run: |
+          composer coverage
       - name: Upload coverage results to Coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
