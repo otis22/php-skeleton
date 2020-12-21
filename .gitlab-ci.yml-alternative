@@ -8,7 +8,7 @@ stages:
 build:
   stage: build
   script:
-    - docker build --rm -t php-skelleton-ci -f docker/Dockerfile .
+    - docker build --build-arg VERSION=7.4 --rm -t php-skelleton-ci -f docker/Dockerfile .
   tags:
     - werf
 
