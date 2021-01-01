@@ -1,4 +1,8 @@
-php_version:=7.4
+default_php_version:=7.4
+php_version:=$(PHP_VERSION)
+ifndef PHP_VERSION
+	php_version:=$(default_php_version)
+endif
 base_dir:=$(shell basename $(CURDIR))
 docker:=docker run --rm -v $(CURDIR):/app -w /app $(base_dir):$(php_version)
 
@@ -30,3 +34,5 @@ coverage:
 	$(docker) composer coverage
 
 all: build install security style static-analyze unit coverage
+
+.PHONY: build

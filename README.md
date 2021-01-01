@@ -12,9 +12,15 @@ For run all tests
 ```shell
 make all
 ```
-or you can connect to terminal
+or connect to terminal
 ```shell
 make exec
+```
+*Dafault php version is 7.4*. Use PHP_VERSION= for using custom version. 
+```shell
+make all PHP_VERSION=8.0
+# run both 
+make all PHP_VERSION=7.4 && make all PHP_VERSION=8.0
 ```
 
 all commands
