@@ -16,6 +16,15 @@ or connect to terminal
 ```shell
 make exec
 ```
+
+or use built in php server [http://localhost:8080](http://localhost:8080)
+```shell
+# start server on 8080 port
+make serve 
+# custom port 8081
+make serve PORT=8081
+```
+
 *Dafault php version is 7.4*. Use PHP_VERSION= for using custom version. 
 ```shell
 make all PHP_VERSION=8.0
