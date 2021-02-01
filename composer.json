@@ -13,7 +13,6 @@
         "phpstan/phpstan": "^0.12.19",
         "squizlabs/php_codesniffer": "3.*",
         "otis22/php-coverage-checker": "^1.2",
-        "sensiolabs/security-checker": "^6.0",
         "wapmorgan/php-deprecation-detector": "^2.0",
         "php-coveralls/php-coveralls": "^2.2"
     },
@@ -32,7 +31,7 @@
         "coverage": "vendor/bin/php-coverage-checker build/logs/clover.xml 100",
         "static-analyze": "vendor/bin/phpstan analyse --level=max src tests &&  vendor/bin/phpdd tests src",
         "style": "vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests",
-        "security": "vendor/bin/security-checker security:check",
+        "security": "./local-php-security-checker --path=./composer.lock",
         "check-all": "composer validate && composer security && composer style && composer static-analyze && composer unit"
     }
 }
