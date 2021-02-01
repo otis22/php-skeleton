@@ -27,5 +27,13 @@
             "Otis22\\PhpSkelleton\\Tests\\": "tests",
             "packagetest\\Tests\\": "tests"
         }
+    },
+    "scripts": {
+        "unit": "vendor/bin/phpunit",
+        "coverage": "vendor/bin/php-coverage-checker build/logs/clover.xml 100",
+        "static-analyze": "vendor/bin/phpstan analyse --level=max src tests &&  vendor/bin/phpdd tests src",
+        "style": "vendor/bin/phpcs --ignore-annotations --standard=PSR12 src tests",
+        "security": "./local-php-security-checker --path=./composer.lock",
+        "check-all": "composer validate && composer security && composer style && composer static-analyze && composer unit"
     }
 }
