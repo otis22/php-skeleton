@@ -42,6 +42,8 @@ make install
 make install-no-dev
 # check code style
 make style
+# fix code style
+make style-fix
 # run static analyze tools
 make static-analyze
 # run unit tests

@@ -35,6 +35,9 @@ install-no-dev:
 style:
 	$(docker) composer style
 
+style-fix:
+	$(docker) composer style
+
 static-analyze:
 	$(docker) composer static-analyze
 
