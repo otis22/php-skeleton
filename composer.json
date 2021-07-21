@@ -12,8 +12,6 @@
         "phpunit/phpunit": "^9.1",
         "phpstan/phpstan": "^0.12.19",
         "otis22/php-coverage-checker": "^1.2",
-        "wapmorgan/php-deprecation-detector": "^2.0",
-        "php-coveralls/php-coveralls": "^2.2",
         "symplify/easy-coding-standard": "^9.3"
     },
     "autoload": {
@@ -29,7 +27,7 @@
     "scripts": {
         "unit": "vendor/bin/phpunit",
         "coverage": "vendor/bin/php-coverage-checker build/logs/clover.xml 100",
-        "static-analyze": "vendor/bin/phpstan analyse --level=max src tests &&  vendor/bin/phpdd tests src",
+        "static-analyze": "vendor/bin/phpstan analyse --level=max src tests",
         "style": "vendor/bin/ecs check",
         "style-fix": "vendor/bin/ecs check --fix",
         "security": "./local-php-security-checker --path=./composer.lock",
