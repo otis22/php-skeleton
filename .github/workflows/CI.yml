@@ -23,9 +23,6 @@ jobs:
       - name: Install dependency
         run: |
           composer install
-      - name: Security check
-        run: |
-          composer security
       - name: Check code standart
         run: |
           composer style

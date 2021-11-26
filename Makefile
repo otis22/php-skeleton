@@ -23,9 +23,6 @@ exec:
 serve:
 	docker run -p$(server_port):8080 --rm -v $(CURDIR):/app -w /app $(base_dir):$(php_version) php -S 0.0.0.0:8080
 
-security:
-	$(docker) composer security
-
 install:
 	$(docker) composer install
 
@@ -47,6 +44,6 @@ unit:
 coverage:
 	$(docker) composer coverage
 
-all: build install security style static-analyze unit coverage
+all: build install style static-analyze unit coverage
 
 .PHONY: build

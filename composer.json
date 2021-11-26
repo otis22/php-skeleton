@@ -30,7 +30,6 @@
         "static-analyze": "vendor/bin/phpstan analyse --level=max src tests",
         "style": "vendor/bin/ecs check",
         "style-fix": "vendor/bin/ecs check --fix",
-        "security": "./local-php-security-checker --path=./composer.lock",
         "check-all": "composer validate && composer security && composer style && composer static-analyze && composer unit"
     }
 }
