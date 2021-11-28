@@ -13,5 +13,4 @@ class Test
     {
         return 1;
     }
-
 }
