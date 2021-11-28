@@ -52,6 +52,15 @@ make unit
 make coverage
 ```
 
+## Autofix Action
+
+Github Action `.github/workflows/ecs.yml` commit fixes to your repo. 
+
+Generate [Access Token](https://github.com/settings/tokens) and add token 
+to repo Settings/Secrets/Actions secrets with name `ACCESS_TOKEN`. 
+
+Or delete `ecs.yml` file.
+
 ## Adopt for you 
 
 - Click on [Use template button](https://prnt.sc/w7avaw) 
