@@ -6,36 +6,26 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
+use PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    // A. standalone rule
+    // A. full sets
+    $containerConfigurator->import(SetList::PSR_12);
+    $containerConfigurator->import(SetList::CLEAN_CODE);
+
+    // B. standalone rule
     $services = $containerConfigurator->services();
-    $services->set(ArraySyntaxFixer::class)
-        ->call('configure', [[
-            'syntax' => 'short',
-        ]]);
+    $services->set(LineLengthSniff::class)
+        ->property('absoluteLineLimit', 120);
 
     $services->set(LineLengthFixer::class)
         ->call('configure', [[
             'max_line_length' => 120, # default: 120
             'break_long_lines' => true, # default: true
-            'inline_short_lines' => false, # default: true
+            'inline_short_lines' => true, # default: true
         ]]);
-
-    // B. full sets
     $parameters = $containerConfigurator->parameters();
-    $parameters->set(
-        Option::PATHS,
-        [
-            __DIR__ . '/src',
-            __DIR__ . '/tests'
-        ]
-    );
-    $parameters->set(
-        Option::SETS,
-        [
-            SetList::CLEAN_CODE,
-            SetList::PSR_12
-        ]
-    );
+
+    // alternative to CLI arguments, easier to maintain and extend
+    $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/tests']);
 };

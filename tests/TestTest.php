@@ -10,9 +10,6 @@ class TestTest extends TestCase
 {
     public function testOne(): void
     {
-        $this->assertEquals(
-            (new Test())->one(),
-            1
-        );
+        $this->assertEquals((new Test())->one(), 1);
     }
 }
