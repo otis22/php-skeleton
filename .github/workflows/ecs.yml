@@ -5,7 +5,6 @@ on: push
 jobs:
   ecs:
     runs-on: ubuntu-latest
-    # run only on commits on main repository, not on forks
     steps:
       -
         uses: actions/checkout@v2

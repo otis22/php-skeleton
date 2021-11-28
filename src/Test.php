@@ -9,8 +9,7 @@ class Test
     /**
      * @return int
      */
-    public function one(): int
-    {
+    public function one(): int {
         return 1;
     }
 }
