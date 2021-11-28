@@ -1,7 +1,6 @@
 name: ECS
 
-on:
-  pull_request: null
+on: push
 
 jobs:
   ecs:
