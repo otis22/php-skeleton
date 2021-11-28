@@ -6,7 +6,6 @@ jobs:
   ecs:
     runs-on: ubuntu-latest
     # run only on commits on main repository, not on forks
-    if: github.event.push.repository.full_name == github.repository
     steps:
       -
         uses: actions/checkout@v2
