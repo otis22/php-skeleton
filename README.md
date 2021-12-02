@@ -35,8 +35,6 @@ make all PHP_VERSION=7.4 && make all PHP_VERSION=8.0
 
 all commands
 ```shell
-# security check
-make security
 # composer install
 make install
 # composer install with --no-dev
