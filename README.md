@@ -53,12 +53,12 @@ make coverage
 
 ## Autofix Action
 
-Github Action `.github/workflows/ecs.yml` commit fixes to your repo. 
+Github Action `.github/workflows/AUTOFIX.yml` commit fixes to your repo. 
 
 Generate [Access Token](https://github.com/settings/tokens) and add token 
 to repo Settings/Secrets/Actions secrets with name `ACCESS_TOKEN`. 
 
-Or delete `ecs.yml` file.
+Or delete `AUTOFIX.yml` file.
 
 ## Adopt for you 
 
