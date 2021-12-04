@@ -33,7 +33,7 @@ style:
 	$(docker) composer style
 
 style-fix:
-	$(docker) composer style
+	$(docker) composer style-fix
 
 static-analyze:
 	$(docker) composer static-analyze

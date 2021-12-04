@@ -29,7 +29,7 @@
         "coverage": "vendor/bin/php-coverage-checker build/logs/clover.xml 100",
         "static-analyze": "vendor/bin/phpstan analyse --level=max src tests",
         "style": "vendor/bin/ecs check",
-        "fix-style": "vendor/bin/ecs check --fix",
+        "style-fix": "vendor/bin/ecs check --fix",
         "check-all": "composer validate && composer style && composer static-analyze && composer unit"
     }
 }
