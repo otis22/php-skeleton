@@ -12,7 +12,8 @@
         "phpunit/phpunit": "^9.1",
         "phpstan/phpstan": "^0.12.19",
         "otis22/php-coverage-checker": "^1.2",
-        "symplify/easy-coding-standard": "^9.3"
+        "symplify/easy-coding-standard": "^9.3",
+        "php-coveralls/php-coveralls": "^2.5"
     },
     "autoload": {
         "psr-4": {
