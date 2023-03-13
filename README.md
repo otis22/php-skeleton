@@ -26,7 +26,7 @@ make serve
 make serve PORT=8081
 ```
 
-*Dafault php version is 7.4*. Use PHP_VERSION= for using custom version. 
+*Dafault php version is 8.2*. Use PHP_VERSION= for using custom version. 
 ```shell
 make all PHP_VERSION=8.0
 # run both 
