@@ -14,6 +14,23 @@ endif
 base_dir:=$(shell basename $(CURDIR))
 docker:=docker run -u=$(shell id -u):$(shell id -g) --rm -v $(CURDIR):/app -w /app $(base_dir):$(php_version)
 
+help:
+	@echo ""
+	@echo "usage: make COMMAND"
+	@echo ""
+	@echo "Commands:"
+	@echo "  build                Build Docker"
+	@echo "  serve                Run server php -S 0.0.0.0:8080"
+	@echo "  exec                 Run shell in container"
+	@echo "  install              Install composer dependencies with dev"
+	@echo "  install-no-dev       Install composer dependencies without dev"
+	@echo "  style                Check code style"
+	@echo "  style-fix            Fix code style"
+	@echo "  static-analyze       Check static analyze"
+	@echo "  unit                 Run unit tests"
+	@echo "  coverage             Check test coverage"
+	@echo "  all                  Run: build install style static-analyze unit coverage"
+
 build:
 	docker build --build-arg VERSION=$(php_version) --tag $(base_dir):$(php_version) ./docker/
 
